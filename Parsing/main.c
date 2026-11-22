@@ -3,10 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/22 14:25:54 by kalhouda          #+#    #+#             */
 /*   Updated: 2026/11/22 14:25:57 by kalhouda         ###   ########.fr       */
+=======
+/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/22 14:18:10 by mhatamle          #+#    #+#             */
+/*   Updated: 2026/11/22 14:52:14 by mhatamle         ###   ########.fr       */
+>>>>>>> 586488c (marah)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +37,9 @@ int	strcmp(const char *s1, const char *s2)
 }
 
 
-algorithm	check_flags (int argc, char **argv, int *start)
+t_algorithm	check_flags (int argc, char **argv, int *start)
 {
-	algorithm strategy;
+	t_algorithm strategy;
 
 	strategy = ADAPTIVE;
 	*start = 1;
@@ -74,7 +81,7 @@ int	main(int argc, char **argv)
 	char			**args;
 	t_stack_list	a;
 	t_stack_list	b;
-	t_operations		stats;
+	t_operations	stats;
 
 	// add the line decide whats the algo
 	stats = {0};

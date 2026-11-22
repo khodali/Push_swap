@@ -6,7 +6,7 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:38:52 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/22 11:28:11 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/22 15:19:28 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	push_chunk(t_stack_list *a, t_stack_list *b, int start, int end, ope
 	}
 }
 
-void	sort_chunks(t_stack_list *a, t_stack_list *b, operations *stats)
+void	sort_chunks(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
 	int	root;
 	int	start;

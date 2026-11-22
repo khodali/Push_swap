@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   clone_stack.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/22 14:58:41 by mhatamle          #+#    #+#             */
+/*   Updated: 2026/11/22 15:21:32 by mhatamle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+t_stack_list    clone_stack(t_stack_list *original)
+{
+    t_stack_list    clone;
+    t_stack         *current;
+    t_stack         *new;
+
+    clone.head = NULL;
+    clone.tail = NULL;
+    current = original->head;
+    while (current != NULL)
+    {
+        new = new_node(current->value);
+        new->rank = current->rank;
+        add_node_back(&clone, new);
+        current = current->next;
+    }
+    return (clone);
+}

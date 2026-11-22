@@ -6,7 +6,7 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 10:40:45 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/22 12:32:34 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/22 15:39:15 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,27 +68,43 @@ typedef struct s_operations
 	int				total_op;
 }					t_operations;
 
+typedef struct s_bench
+{
+	t_stack_list    simple_a;
+    t_stack_list    simple_b;
+    t_stack_list    medium_a;
+    t_stack_list    medium_b;
+    t_stack_list    complex_a;
+    t_stack_list    complex_b;
+	t_operations 	simple_stats;
+    t_operations 	medium_stats;
+    t_operations 	complex_stats;
+}					t_bench;
+
+
+
+
 void				push(t_stack_list *src, t_stack_list *dst);
-void				pa(t_stack_list *a, t_stack_list *b, operations *stats);
-void				pb(t_stack_list *a, t_stack_list *b, operations *stats);
+void				pa(t_stack_list *a, t_stack_list *b, t_operations *stats);
+void				pb(t_stack_list *a, t_stack_list *b, t_operations *stats);
 
 void				swap(t_stack_list *stack);
-void				sa(t_stack_list *a, operations *stats);
-void				sb(t_stack_list *b, operations *stats);
-void				ss(t_stack_list *a, t_stack_list *b, operations *stats);
+void				sa(t_stack_list *a,t_operations *stats);
+void				sb(t_stack_list *b,t_operations *stats);
+void				ss(t_stack_list *a, t_stack_list *b,t_operations *stats);
 
 void				rotate(t_stack_list *stack);
-void				ra(t_stack_list *a, operations *stats);
-void				rb(t_stack_list *b, operations *stats);
-void				rr(t_stack_list *a, t_stack_list *b, operations *stats);
+void				ra(t_stack_list *a, t_operations *stats);
+void				rb(t_stack_list *b, t_operations stats);
+void				rr(t_stack_list *a, t_stack_list *b, t_operations *stats);
 
 void				reverse_rotate(t_stack_list *stack);
-void				rra(t_stack_list *a, operations *stats);
-void				rrb(t_stack_list *b, operations *stats);
-void				rrr(t_stack_list *a, t_stack_list *b, operations *stats);
+void				rra(t_stack_list *a, t_operations *stats);
+void				rrb(t_stack_list *b, t_operations *stats);
+void				rrr(t_stack_list *a, t_stack_list *b, t_operations *stats);
 
 void				adaptive_sort(t_stack_list *a, t_stack_list *b,
-						operations *stats);
+						t_operations *stats);
 int					*stack_to_array(t_stack *stack, long size);
 float				disorder(t_stack *stack);
 long				count_inversions(int *arr, int *tmp, long left, long right);
@@ -117,7 +133,7 @@ bool				check_duplicate_value(t_stack *stack, int value);
 bool				check_duplicate(t_stack *stack);
 int					get_max_bits(t_stack *a);
 void				radix_sort(t_stack_list *a, t_stack_list *b,
-						operations *stats);
+						t_operations *stats);
 
 void				init_stack(t_stack_list *a, int argc, char **argv);
 void				init_rank(t_stack_list *a, int *rank, int len);
@@ -128,15 +144,18 @@ int					*get_rank(t_stack *stack);
 int					get_chunk_size(int len);
 void				sort_back_to_a(t_stack_list *a, t_stack_list *b);
 
-void				sort_chunks(t_stack_list *a, t_stack_list *b);
+void				sort_chunks(t_stack_list *a, t_stack_list *b, t_operations *stats);
 int					find_max_rank(t_stack *b);
 int					find_max_position(t_stack *b);
 t_stack				*find_min(t_stack *stack);
 
 int					find_position(t_stack *stack, t_stack *target);
 int					stack_size(t_stack *stack);
-void				rotate_min_to_top(t_stack_list *a, operations *stats);
+void				rotate_min_to_top(t_stack_list *a, t_operations *stats);
 void				simple_sort(t_stack_list *a, t_stack_list *b,
-						operations *stats);
+						t_operations *stats);
+						
+t_stack_list  		clone_stack(t_stack_list *original);
+void				run_bench(t_stack_list *original);
 
 #endif
