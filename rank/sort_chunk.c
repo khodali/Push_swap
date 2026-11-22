@@ -6,13 +6,13 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:38:52 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/04 09:40:43 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/22 11:28:11 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_chunk(t_stack_list *a, t_stack_list *b, int start, int end)
+static void	push_chunk(t_stack_list *a, t_stack_list *b, int start, int end, operations *stats)
 {
 	int		i;
 	int		len;
@@ -26,12 +26,12 @@ static void	push_chunk(t_stack_list *a, t_stack_list *b, int start, int end)
 		if (node->rank >= start && node->rank <= end)
 			pb(a, b, stats);
 		else
-			ra(a, b, stats);
+			ra(a, stats);
 		i++;
 	}
 }
 
-void	sort_chunks(t_stack_list *a, t_stack_list *b)
+void	sort_chunks(t_stack_list *a, t_stack_list *b, operations *stats)
 {
 	int	root;
 	int	start;

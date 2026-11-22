@@ -6,13 +6,13 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 09:41:17 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/16 09:41:19 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/22 10:39:22 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	move_max_to_top(t_stacl_list *b, int max_pos, int len,
+static void	move_max_to_top(t_stack_list *b, int max_pos, int len,
 		operations *stats)
 {
 	int	i;
@@ -37,7 +37,7 @@ static void	move_max_to_top(t_stacl_list *b, int max_pos, int len,
 	}
 }
 
-void	sort_back_to_a(t_stack_list *a, t_stack_list *b)
+void	sort_back_to_a(t_stack_list *a, t_stack_list *b, operations *stats)
 {
 	int	max_pos;
 	int	len;

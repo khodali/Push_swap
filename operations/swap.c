@@ -6,7 +6,7 @@
 /*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:45:34 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/08 15:45:49 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/22 11:29:03 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ void	ss(t_stack_list *a, t_stack_list *b, operations *stats)
 	stats->ss++;
 	stats->total_op++;
 	swap(a);
-	swap(b) :
+	swap(b);
 }

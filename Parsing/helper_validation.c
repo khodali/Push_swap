@@ -6,9 +6,11 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 10:00:09 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/16 10:00:11 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/22 10:20:40 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 bool	is_valid_syntax(char *str)
 {
