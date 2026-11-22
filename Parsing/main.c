@@ -6,28 +6,66 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 15:54:25 by kalhouda          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/11/22 12:33:49 by mhatamle         ###   ########.fr       */
+=======
+/*   Updated: 2026/11/22 13:59:26 by kalhouda         ###   ########.fr       */
+>>>>>>> 8671505 (change the main)
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-algorithm	check_flags(int argc, char **argv)
+int	strcmp(const char *s1, const char *s2)
 {
-	if (argc > 1 && argv[1][0] == '-' && argv[1][1] == '-')
+	size_t	i;
+
+	i = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		if (ft_strncmp(argv[1], "--simple", 9) == 0)
-			return (SIMPLE);
-		else if (ft_strncmp(argv[1], "--medium", 9) == 0)
-			return (MEDIUM);
-		else if (ft_strncmp(argv[1], "--complex", 10) == 0)
-			return (COMPLEX);
-		else if (strcmp(argv[1], "--adaptive") == 11)
-			return (ADAPTIVE);
-		else if (strcmp(argv[1], "--bench") == 8)
-			return (BENCH);
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	return (INVALID);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+
+algorithm	check_flags (int argc, char **argv, int *start)
+{
+	algorithm strategy;
+
+	strategy = ADAPTIVE;
+	*start = 1;
+	// we dont need this ig
+	//	*error = 0;
+
+
+	while (*start < argc  && argv[*start][0] == '-' && argv[*start][1] == '-')
+	{
+		if (strcmp(argv[*start], "--simple") == 0)
+			strategy = SIMPLE;
+		else if (strcmp(argv[*start], "--medium") == 0)
+			strategy = MEDIUM;
+		else if (strcmp(argv[*start], "--complex") == 0)
+			strategy = COMPLEX;
+		else if (strcmp(argv[*start], "--adaptive") == 0)
+			strategy = ADAPTIVE;
+		else if (strcmp(argv[*start], "--bench") == 0)
+			strategy = BENCH;
+		else
+			return (INVALID);
+
+		(*start)++;
+	}
+	return (strategy);
+}
+
+int	validate_args(int argc, char **argv, int start)
+{
+	
 }
 
 int	main(int argc, char **argv)

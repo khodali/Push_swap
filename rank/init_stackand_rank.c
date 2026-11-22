@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stackand_rank.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 09:22:31 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/16 10:05:05 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/22 13:05:05 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,15 @@ void	init_stack(t_stack_list *a, int argc, char **argv)
 	}
 }
 
-void	init_rank(t_stack_list *a, int *rank, int len)
+// we have to convert this to int 
+
+int	init_rank(t_stack_list *a, int *rank, int len)
 {
 	t_stack	*node;
 	int		i;
 
 	if (size(a->head) != len)
-		return ;
+		return (0);
 	node = a->head;
 	i = 0;
 	while (node != NULL)
@@ -45,4 +47,5 @@ void	init_rank(t_stack_list *a, int *rank, int len)
 		node = node->next;
 		i++;
 	}
+	return (1);
 }
