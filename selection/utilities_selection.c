@@ -6,7 +6,7 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 13:20:35 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/16 09:40:17 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/22 12:34:41 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	stack_size(t_stack *stack)
 	return (counter);
 }
 
-void	rotate_min_to_top(t_stack_list *a, operations *stats)
+void	rotate_min_to_top(t_stack_list *a, t_operations *stats)
 {
 	int	ra_count;
 	int	rra_count;

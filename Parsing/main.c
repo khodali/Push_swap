@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 15:54:25 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/08 14:26:03 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/22 12:33:49 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ algorithm	check_flags(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	algorithm		algo;
+	t_algorithm		algo;
 	int				i;
 	int				*rank;
 	char			**numbers;
 	char			**args;
 	t_stack_list	a;
 	t_stack_list	b;
-	operations		stats;
+	t_operations		stats;
 
 	// add the line decide whats the algo
 	stats = {0};
