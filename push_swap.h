@@ -95,7 +95,7 @@ void				ss(t_stack_list *a, t_stack_list *b,t_operations *stats);
 
 void				rotate(t_stack_list *stack);
 void				ra(t_stack_list *a, t_operations *stats);
-void				rb(t_stack_list *b, t_operations stats);
+void				rb(t_stack_list *b, t_operations *stats);
 void				rr(t_stack_list *a, t_stack_list *b, t_operations *stats);
 
 void				reverse_rotate(t_stack_list *stack);
