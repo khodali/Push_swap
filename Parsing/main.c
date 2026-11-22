@@ -7,6 +7,7 @@
 /*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/22 14:25:54 by kalhouda          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/11/22 14:25:57 by kalhouda         ###   ########.fr       */
 =======
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
@@ -14,6 +15,9 @@
 /*   Created: 2026/11/22 14:18:10 by mhatamle          #+#    #+#             */
 /*   Updated: 2026/11/22 14:52:14 by mhatamle         ###   ########.fr       */
 >>>>>>> 586488c (marah)
+=======
+/*   Updated: 2026/11/22 15:25:23 by kalhouda         ###   ########.fr       */
+>>>>>>> d8cb8e6 (ok)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +71,51 @@ t_algorithm	check_flags (int argc, char **argv, int *start)
 	return (strategy);
 }
 
-int	validate_args(int argc, char **argv, int start)
+int	is_there_error_in_args(int argc, char **argv, int start, t_stack_list *a)
 {
-	
+	while (start < argc)
+	{
+		if (validate_and_add(&a, argv[start]))
+		{
+			free_stack(a);
+			return (1);
+		}	
+		start++;
+	}
+	if (!a->head)
+		return (1);
+	else
+		return (0);
 }
 
+
+/*
+
+i have to write this in the main
+
+if (!validate_and_add(&a, args[i]))
+{
+    free_split(numbers);
+    free_stack(&a);
+    write(2, "Error\n", 6);
+    return (1);
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 int	main(int argc, char **argv)
 {
 	t_algorithm		algo;
