@@ -6,13 +6,13 @@
 /*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 14:16:47 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/24 14:16:48 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/24 19:06:38 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int strcmp(const char *s1, const char *s2)
+int my_strcmp(const char *s1, const char *s2)
 {
 	size_t i;
 
@@ -28,124 +28,118 @@ int strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-t_algorithm check_flags(int argc, char **argv, int *start)
+t_algorithm check_flags(int argc, char **argv, int *start, int *bench)
 {
 	t_algorithm strategy;
 
 	strategy = ADAPTIVE;
 	*start = 1;
-	// we dont need this ig
-	//	*error = 0;
-
+	*bench = 0;
 	while (*start < argc && argv[*start][0] == '-' && argv[*start][1] == '-')
 	{
-		if (strcmp(argv[*start], "--simple") == 0)
+		if (my_strcmp(argv[*start], "--simple") == 0)
 			strategy = SIMPLE;
-		else if (strcmp(argv[*start], "--medium") == 0)
+		else if (my_strcmp(argv[*start], "--medium") == 0)
 			strategy = MEDIUM;
-		else if (strcmp(argv[*start], "--complex") == 0)
+		else if (my_strcmp(argv[*start], "--complex") == 0)
 			strategy = COMPLEX;
-		else if (strcmp(argv[*start], "--adaptive") == 0)
+		else if (my_strcmp(argv[*start], "--adaptive") == 0)
 			strategy = ADAPTIVE;
-		else if (strcmp(argv[*start], "--bench") == 0)
-			strategy = BENCH;
+		else if (my_strcmp(argv[*start], "--bench") == 0)
+			*bench = 1;
 		else
+		{
+			write(2, "Error\n", 6);
 			return (INVALID);
+		}
 
 		(*start)++;
 	}
 	return (strategy);
 }
 
-int is_there_error_in_args(int argc, char **argv, int start, t_stack_list *a)
+int load_arguments(int count, char **args, int start, t_stack_list *a)
 {
-	while (start < argc)
+	while (start < count)
 	{
-		if (validate_and_add(&a, argv[start]))
+		if (!validate_and_add(a, args[start]))
 		{
+			write(2, "Error\n", 6);
 			free_stack(a);
 			return (1);
 		}
 		start++;
 	}
 	if (!a->head)
+	{
+		write(2, "Error\n", 6);
 		return (1);
+	}
 	else
 		return (0);
 }
 
-/*
-
-i have to write this in the main
-
-if (!validate_and_add(&a, args[i]))
+int parse_arguments(int argc, char **argv, int start, t_stack_list *a)
 {
-	free_split(numbers);
-	free_stack(&a);
-	write(2, "Error\n", 6);
-	return (1);
+	char **numbers;
+	int count;
+	int error;
+
+	if (start >= argc)
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	if (argc - start == 1)
+	{
+		numbers = ft_split(argv[start], ' ');
+		if (!numbers)
+			return (1);
+		count = 0;
+		while (numbers[count])
+			count++;
+		error = load_arguments(count, numbers, 0, a);
+		free_split(numbers);
+		return (error);
+	}
+	// ./ps 1 2 3 return the numbers themselvess
+	return (load_arguments(argc, argv, start, a));
 }
 
-*/
+void initialize_program(t_stack_list *a, t_stack_list *b)
+{
+	*a = (t_stack_list){0};
+	*b = (t_stack_list){0};
+}
+
+int initialize_input(int argc, char **argv, t_stack_list *a, int *bench)
+{
+	int start;
+
+	t_algorithm strategy;
+
+	strategy = check_flags(argc, argv, &start, bench);
+	if (strategy == INVALID)
+		return (0);
+}
+// complete bulidng it later
 
 int main(int argc, char **argv)
 {
-	t_algorithm algo;
-	int i;
-	int *rank;
-	char **numbers;
-	char **args;
 	t_stack_list a;
 	t_stack_list b;
-	t_operations stats;
+	int start;
+	int bench;
+	t_algorithm strategy;
 
-	// add the line decide whats the algo
-	stats = {0};
 	a.head = NULL;
 	a.tail = NULL;
 	b.head = NULL;
 	b.tail = NULL;
-	numbers = NULL;
-	if (argc == 1)
-		return (0);
-	if (argc == 2)
-	{
-		numbers = ft_split(argv[1], ' ');
-		if (!numbers)
-			return (1);
-		args = numbers;
-	}
-	else
-		args = &argv[1];
-	i = 0;
-	while (args[i])
-	{
-		if (!validate_and_add(&a, args[i]))
-		{
-			free_split(numbers);
-			free_stack(&a);
-			write(2, "Error\n", 6);
-			return (1);
-		}
-		i++;
-	}
-	free_split(numbers);
-	if (size(a.head) <= 1)
-	{
-		free_stack(&a);
-		return (0);
-	}
-	rank = get_rank(a.head);
-	if (!rank || !init_rank(&a, rank, size(a.head)))
-	{
-		free(rank);
-		free_stack(&a);
+
+	strategy = check_flags(argc, argv, &start, &bench);
+	if (strategy == INVALID)
 		return (1);
-	}
-	free(rank);
-	sort_chunks(&a, &b);
-	sort_back_to_a(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
+
 	return (0);
 }
