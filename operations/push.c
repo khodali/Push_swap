@@ -33,16 +33,20 @@ void	push(t_stack_list *src, t_stack_list *dst)
 	dst->head = tmp;
 }
 
-void	pb(t_stack_list *a, t_stack_list *b, operations *stats)
+void	pb(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
+	if (!a || !b || !a->head || !stats)
+		return ;
+	push(a, b);
 	stats->pb++;
 	stats->total_op++;
-	push(a, b);
 }
 
-void	pa(t_stack_list *a, t_stack_list *b, operations *stats)
+void	pa(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
+	if (!a || !b || !b->head || !stats)
+		return;
+	push(b, a);
 	stats->pa++;
 	stats->total_op++;
-	push(b, a);
 }

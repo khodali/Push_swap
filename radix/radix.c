@@ -26,7 +26,7 @@ int	get_max_bits(t_stack *a)
 	return (max_bits);
 }
 
-void	radix_sort(t_stack_list *a, t_stack_list *b, operations *stats)
+void	radix_sort(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
 	int	max_bits;
 	int	bit;

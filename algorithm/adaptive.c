@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	adaptive_sort(t_stack_list *a, t_stack_list *b, operations *stats)
+void	adaptive_sort(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
 	float	disorder_value;
 

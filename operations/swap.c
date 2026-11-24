@@ -58,8 +58,8 @@ void	ss(t_stack_list *a, t_stack_list *b, t_operations *stats)
 		return;
 	if ((!a->head || !a->head->next) && (!b->head || !b->head->next))
 		return;
-	stats->ss++;
-	stats->total_op++;
 	swap(a);
 	swap(b);
+	stats->ss++;
+	stats->total_op++;
 }

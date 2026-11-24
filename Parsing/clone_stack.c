@@ -20,6 +20,8 @@ t_stack_list    clone_stack(t_stack_list *original, int *success)
 
     clone.head = NULL;
     clone.tail = NULL;
+    if (!original || !success)
+        return (clone);
     *success = 0;
     current = original->head;
     while (current != NULL)

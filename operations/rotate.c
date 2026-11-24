@@ -31,26 +31,30 @@ void	rotate(t_stack_list *stack)
 	stack->tail = tmp;
 }
 
-void	ra(t_stack_list *a, operations *stats)
+void	ra(t_stack_list *a, t_operations *stats)
 {
+	if (!a || !a->head || !a->head->next || !stats)
+		return ;
+	rotate(a);
 	stats->ra++;
 	stats->total_op++;
-	rotate(a);
 }
 
-void	rb(t_stack_list *b, operations *stats)
+void	rb(t_stack_list *b, t_operations *stats)
 {
-	stats->rb++;
-	stats->total_op++;
+	if (!b || !b->head || !b->head->next || !stats)
+		return ;
 	rotate(b);
-}
+	stats->rb++;
+	stats->total_op++;}
 
-void	rr(t_stack_list *a, t_stack_list *b, operations *stats)
+void	rr(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
 	if (!a || !b || !stats)
 		return ;
+	if ((!a->head || !a->head->next) && (!b->head || !b->head->next))
+		return ;
+	rotate(a);
+	rotate(b);
 	stats->rr++;
 	stats->total_op++;
-	ra(a, stats);
-	rb(b, stats);
-}

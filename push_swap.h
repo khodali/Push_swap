@@ -19,6 +19,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -151,19 +152,14 @@ void rotate_min_to_top(t_stack_list *a, t_operations *stats);
 void simple_sort(t_stack_list *a, t_stack_list *b,
 				 t_operations *stats);
 
-t_stack_list    clone_stack(t_stack_list *original, int *success)
+t_stack_list    clone_stack(t_stack_list *original, int *success);
 int	init_bench(t_bench *bench, t_stack_list *original);
 
 void run_bench(t_stack_list *original);
 void run_algorithms(t_bench *bench);
 void free_bench(t_bench *bench);
 
-void print_simple_bench(t_operations *stats);
-void print_medium_bench(t_operations *stats);
-void print_complex_bench(t_operations *stats);
-void print_bench(t_bench *bench);
+void print_bench(float disorder_value, const char *strategy, t_operations *stats);
 int parse_arguments(int argc, char **argv, int start, t_stack_list *a);
-
-
-t_operations    *get_adaptive_stats(t_bench *bench, float disorder_value, const char **strategy);
+t_operations   *get_adaptive_stats(t_bench *bench, float disorder_value, const char **strategy);
 #endif

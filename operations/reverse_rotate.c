@@ -31,26 +31,32 @@ void	reverse_rotate(t_stack_list *stack)
 	stack->tail = before_last;
 }
 
-void	rra(t_stack_list *a, operations *stats)
+void	rra(t_stack_list *a, t_operations *stats)
 {
+	if (!a || !a->head || !a->head->next || !stats)
+		return ;
+	reverse_rotate(a);
 	stats->rra++;
 	stats->total_op++;
-	reverse_rotate(a);
 }
 
-void	rrb(t_stack_list *b, operations *stats)
+void	rrb(t_stack_list *b, t_operations *stats)
 {
+	if (!b || !b->head || !b->head->next || !stats)
+		return ;
+	reverse_rotate(b);
 	stats->rrb++;
 	stats->total_op++;
-	reverse_rotate(b);
 }
 
-void	rrr(t_stack_list *a, t_stack_list *b, operations *stats)
+void	rrr(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
-	if (!a | !b | !stats)
+	if (!a || !b || !stats)
 		return ;
-	stats->rrr++;
-	stats->total_op++;
+	if ((!a->head || !a->head->next) && (!b->head || !b->head->next))
+		return ;
 	reverse_rotate(a);
 	reverse_rotate(b);
+	stats->rrr++;
+	stats->total_op++;
 }
