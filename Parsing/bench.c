@@ -46,13 +46,23 @@ int init_bench(t_bench *bench, t_stack_list *original)
 void    run_bench(t_stack_list *original)
 {
     t_bench bench;
-    
+    float   disorder_value;
+    const char  *strategy;
+    t_operations    *selected_stats;
+
+    disorder_value = disorder(original->head);
+    if (disorder_value < 0.0f)
+    {
+        fprintf(stderr, "Error\n");
+        return ;
+    }
     if (!init_bench(&bench, original))
     {
         fprintf(stderr, "Error\n");
         return ;
     }
     run_algorithms(&bench);
-    print_bench(&bench);
+    selected_stats = get_adaptive_stats(&bench, disorder_value, &strategy);
+    print_bench(disorder_value, strategy, selected_stats);
     free_bench(&bench);
 }

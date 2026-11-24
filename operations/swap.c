@@ -36,7 +36,7 @@ void	swap(t_stack_list *stack)
 
 void	sa(t_stack_list *a, t_operations *stats)
 {
-	if (!a || !(a)->head || !a->head->next)
+	if (!a || !(a)->head || !a->head->next || !stats)
 		return ;
 	stats->sa++;
 	stats->total_op++;
@@ -45,7 +45,7 @@ void	sa(t_stack_list *a, t_operations *stats)
 
 void	sb(t_stack_list *b, t_operations *stats)
 {
-	if (!b || !b->head || !b->head->next)
+	if (!b || !b->head || !b->head->next || !stats)
 		return ;
 	stats->sb++;
 	stats->total_op++;
@@ -54,6 +54,10 @@ void	sb(t_stack_list *b, t_operations *stats)
 
 void	ss(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
+	if (!a | !b | !stats)
+		return;
+	if ((!a->head || !a->head->next) && (!b->head || !b->head->next))
+		return;
 	stats->ss++;
 	stats->total_op++;
 	swap(a);

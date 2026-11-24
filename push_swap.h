@@ -164,4 +164,6 @@ void print_complex_bench(t_operations *stats);
 void print_bench(t_bench *bench);
 int parse_arguments(int argc, char **argv, int start, t_stack_list *a);
 
+
+t_operations    *get_adaptive_stats(t_bench *bench, float disorder_value, const char **strategy);
 #endif

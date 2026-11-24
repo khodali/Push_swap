@@ -47,6 +47,8 @@ void	rrb(t_stack_list *b, operations *stats)
 
 void	rrr(t_stack_list *a, t_stack_list *b, operations *stats)
 {
+	if (!a | !b | !stats)
+		return ;
 	stats->rrr++;
 	stats->total_op++;
 	reverse_rotate(a);
