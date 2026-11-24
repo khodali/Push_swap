@@ -3,30 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
 /*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/22 14:25:54 by kalhouda          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/11/22 14:25:57 by kalhouda         ###   ########.fr       */
-=======
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/22 14:18:10 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/22 14:52:14 by mhatamle         ###   ########.fr       */
->>>>>>> 586488c (marah)
-=======
-/*   Updated: 2026/11/22 15:25:23 by kalhouda         ###   ########.fr       */
->>>>>>> d8cb8e6 (ok)
+/*   Created: 2026/11/24 14:16:47 by kalhouda          #+#    #+#             */
+/*   Updated: 2026/11/24 14:16:48 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-int	strcmp(const char *s1, const char *s2)
+int strcmp(const char *s1, const char *s2)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	if (s1 == NULL || s2 == NULL)
@@ -40,8 +28,7 @@ int	strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-
-t_algorithm	check_flags (int argc, char **argv, int *start)
+t_algorithm check_flags(int argc, char **argv, int *start)
 {
 	t_algorithm strategy;
 
@@ -50,8 +37,7 @@ t_algorithm	check_flags (int argc, char **argv, int *start)
 	// we dont need this ig
 	//	*error = 0;
 
-
-	while (*start < argc  && argv[*start][0] == '-' && argv[*start][1] == '-')
+	while (*start < argc && argv[*start][0] == '-' && argv[*start][1] == '-')
 	{
 		if (strcmp(argv[*start], "--simple") == 0)
 			strategy = SIMPLE;
@@ -71,7 +57,7 @@ t_algorithm	check_flags (int argc, char **argv, int *start)
 	return (strategy);
 }
 
-int	is_there_error_in_args(int argc, char **argv, int start, t_stack_list *a)
+int is_there_error_in_args(int argc, char **argv, int start, t_stack_list *a)
 {
 	while (start < argc)
 	{
@@ -79,7 +65,7 @@ int	is_there_error_in_args(int argc, char **argv, int start, t_stack_list *a)
 		{
 			free_stack(a);
 			return (1);
-		}	
+		}
 		start++;
 	}
 	if (!a->head)
@@ -88,44 +74,30 @@ int	is_there_error_in_args(int argc, char **argv, int start, t_stack_list *a)
 		return (0);
 }
 
-
 /*
 
 i have to write this in the main
 
 if (!validate_and_add(&a, args[i]))
 {
-    free_split(numbers);
-    free_stack(&a);
-    write(2, "Error\n", 6);
-    return (1);
+	free_split(numbers);
+	free_stack(&a);
+	write(2, "Error\n", 6);
+	return (1);
 }
 
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-	
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_algorithm		algo;
-	int				i;
-	int				*rank;
-	char			**numbers;
-	char			**args;
-	t_stack_list	a;
-	t_stack_list	b;
-	t_operations	stats;
+	t_algorithm algo;
+	int i;
+	int *rank;
+	char **numbers;
+	char **args;
+	t_stack_list a;
+	t_stack_list b;
+	t_operations stats;
 
 	// add the line decide whats the algo
 	stats = {0};
