@@ -151,8 +151,8 @@ void rotate_min_to_top(t_stack_list *a, t_operations *stats);
 void simple_sort(t_stack_list *a, t_stack_list *b,
 				 t_operations *stats);
 
-t_stack_list clone_stack(t_stack_list *original);
-void init_bench(t_bench *bench, t_stack_list *original);
+t_stack_list    clone_stack(t_stack_list *original, int *success)
+int	init_bench(t_bench *bench, t_stack_list *original);
 
 void run_bench(t_stack_list *original);
 void run_algorithms(t_bench *bench);

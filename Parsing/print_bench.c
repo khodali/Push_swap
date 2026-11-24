@@ -14,17 +14,17 @@
 
 void print_simple_bench(t_operations *stats)
 {
-    printf("SIMPLE: %d operations\n", stats->total_op);
+    fprintf(stderr,"SIMPLE: %d operations\n", stats->total_op);
 }
 
 void print_medium_bench(t_operations *stats)
 {
-    printf("MEDIUM: %d operations\n", stats->total_op);
+    fprintf(stderr,"MEDIUM: %d operations\n", stats->total_op);
 }
 
 void print_complex_bench(t_operations *stats)
 {
-    printf("COMPLEX: %d operations\n", stats->total_op);
+    fprintf(stderr,"COMPLEX: %d operations\n", stats->total_op);
 }
 
 void print_bench(t_bench *bench)
