@@ -16,13 +16,7 @@
 
 #include "push_swap.h"
 
-<<<<<<< HEAD
-static void	move_max_to_top(t_stack_list *b, int max_pos, int len,
-		operations *stats)
-=======
-static void	move_max_to_top(t_stacl_list *b, int max_pos, int len,
-		t_operations *stats)
->>>>>>> 793c0f9 (hi)
+void sort_back_to_a(t_stack_list *a, t_stack_list *b)
 {
 	int	i;
 

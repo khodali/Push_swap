@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 LIBFT = libft/libft.a
 
-SRCS = push_swap.c push.c swap.c rotate.c reverse_rotate.c
+SRCS =  adaptive.c disorder.c  merge_count.c merge.c size.c stats_adaptive.c push.c reverse_rotate.c rotate.c swap.c add_node.c atol.c bench.c clone_stack.c free_bench.c free_split.c free.c helper_validation.c main.c  print_bench.c validation.c radix.c init_stackand_rank.c  rank.c sort_back_to_a.c sort_chunk.c utilities_selection.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
