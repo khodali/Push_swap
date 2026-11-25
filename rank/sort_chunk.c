@@ -12,7 +12,8 @@
 
 #include "push_swap.h"
 
-static void	push_chunk(t_stack_list *a, t_stack_list *b, int start, int end, operations *stats)
+static void	push_chunk(t_stack_list *a, t_stack_list *b, int start, 
+	int end, t_operations *stats)
 {
 	int		i;
 	int		len;

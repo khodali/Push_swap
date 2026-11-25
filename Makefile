@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 LIBFT = libft/libft.a
 
-SRCS =  adaptive.c disorder.c  merge_count.c merge.c size.c stats_adaptive.c push.c reverse_rotate.c rotate.c swap.c add_node.c atol.c bench.c clone_stack.c free_bench.c free_split.c free.c helper_validation.c main.c  print_bench.c validation.c radix.c init_stackand_rank.c  rank.c sort_back_to_a.c sort_chunk.c utilities_selection.c
+SRCS =  algorithm/adaptive.c  algorithm/disorder.c algorithm/merge_count.c algorithm/merge.c  algorithm/size.c  algorithm/stats_adaptive.c operations/push.c operations/reverse_rotate.c operations/rotate.c operations/swap.c Parsing/add_node.c Parsing/atol.c Parsing/bench.c Parsing/clone_stack.c Parsing/free_bench.c Parsing/free_split.c Parsing/free.c Parsing/helper_validation.c Parsing/main.c  Parsing/print_bench.c Parsing/validation.c radix/radix.c rank/init_stackand_rank.c  rank/rank.c rank/sort_back_to_a.c rank/sort_chunk.c selection/utilities_selection.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -13,7 +13,7 @@ $(LIBFT):
 	make -C libft
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -lm -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

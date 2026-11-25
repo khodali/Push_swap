@@ -132,14 +132,15 @@ int get_max_bits(t_stack *a);
 void radix_sort(t_stack_list *a, t_stack_list *b,
 				t_operations *stats);
 
-void init_stack(t_stack_list *a, int argc, char **argv);
-void init_rank(t_stack_list *a, int *rank, int len);
+int init_stack(t_stack_list *a, int argc, char **argv);
+int	init_rank(t_stack_list *a, int *rank, int len);
 int *get_copy(t_stack *stack);
 void check_sorted(int *arr, int *rank, int len);
 
 int *get_rank(t_stack *stack);
 int get_chunk_size(int len);
-void sort_back_to_a(t_stack_list *a, t_stack_list *b);
+void	sort_back_to_a(t_stack_list *a, t_stack_list *b, t_operations *stats);
+void	move_max_to_top(t_stack_list *b, int max_pos, int len, t_operations *stats);
 
 void sort_chunks(t_stack_list *a, t_stack_list *b, t_operations *stats);
 int find_max_rank(t_stack *b);

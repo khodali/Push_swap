@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	init_stack(t_stack_list *a, int argc, char **argv)
+int	init_stack(t_stack_list *a, int argc, char **argv)
 {
 	int		i;
 	int		value;
@@ -24,19 +24,20 @@ void	init_stack(t_stack_list *a, int argc, char **argv)
 		value = ft_atoi(argv[i]);
 		node = new_node(value);
 		if (node == NULL)
-			return ;
+			return (0);
 		add_node_back(a, node);
 		i++;
 	}
-}
-
-// we have to convert this to int 
+	return (1);
+} 
 
 int	init_rank(t_stack_list *a, int *rank, int len)
 {
 	t_stack	*node;
 	int		i;
 
+	if (!a || !rank || len <= 0)
+		return (0);
 	if (size(a->head) != len)
 		return (0);
 	node = a->head;
