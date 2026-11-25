@@ -1,22 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/24 00:18:07 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/16 09:43:59 by mhatamle         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	reverse_rotate(t_stack_list *stack)
 {
-	t_stack	*head;
-	t_stack	*last;
-	t_stack	*before_last;
+	t_stack *head;
+	t_stack *last;
+	t_stack *before_last;
 
 	if (!stack || !stack->head || !stack->head->next || !stack->tail)
 		return ;
@@ -38,6 +26,8 @@ void	rra(t_stack_list *a, t_operations *stats)
 	reverse_rotate(a);
 	stats->rra++;
 	stats->total_op++;
+	if (!g_silent)
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack_list *b, t_operations *stats)
@@ -47,6 +37,8 @@ void	rrb(t_stack_list *b, t_operations *stats)
 	reverse_rotate(b);
 	stats->rrb++;
 	stats->total_op++;
+	if (!g_silent)
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack_list *a, t_stack_list *b, t_operations *stats)
@@ -59,4 +51,6 @@ void	rrr(t_stack_list *a, t_stack_list *b, t_operations *stats)
 	reverse_rotate(b);
 	stats->rrr++;
 	stats->total_op++;
+	if (!g_silent)
+		write(1, "rrr\n", 4);
 }
