@@ -13,6 +13,8 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
+extern int g_silent;
+
 #include "libft/libft.h"
 #include <limits.h>
 #include <math.h>
