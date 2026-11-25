@@ -1,20 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/23 22:02:36 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/10/23 22:02:36 by kalhouda         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	push(t_stack_list *src, t_stack_list *dst)
 {
-	t_stack	*tmp;
+	t_stack *tmp;
 
 	if (!src || !src->head || !dst)
 		return ;
@@ -40,13 +28,17 @@ void	pb(t_stack_list *a, t_stack_list *b, t_operations *stats)
 	push(a, b);
 	stats->pb++;
 	stats->total_op++;
+	if (!g_silent)
+		write(1, "pb\n", 3);
 }
 
 void	pa(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
 	if (!a || !b || !b->head || !stats)
-		return;
+		return ;
 	push(b, a);
 	stats->pa++;
 	stats->total_op++;
+	if (!g_silent)
+		write(1, "pa\n", 3);
 }
