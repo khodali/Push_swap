@@ -6,7 +6,7 @@
 /*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 14:16:47 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/24 19:06:38 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/25 16:18:31 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,21 @@ int load_arguments(int count, char **args, int start, t_stack_list *a)
 {
 	while (start < count)
 	{
-		if (!validate_and_add(a, args[start]))
+		if (validate_and_add(a, args[start]) == -1)
 		{
 			write(2, "Error\n", 6);
 			free_stack(a);
-			return (1);
+			return (-1);
 		}
 		start++;
 	}
 	if (!a->head)
 	{
 		write(2, "Error\n", 6);
-		return (1);
+		return (-1);
 	}
 	else
-		return (0);
+		return (1);
 }
 
 int parse_arguments(int argc, char **argv, int start, t_stack_list *a)
@@ -88,13 +88,13 @@ int parse_arguments(int argc, char **argv, int start, t_stack_list *a)
 	if (start >= argc)
 	{
 		write(2, "Error\n", 6);
-		return (1);
+		return (-1);
 	}
 	if (argc - start == 1)
 	{
 		numbers = ft_split(argv[start], ' ');
 		if (!numbers)
-			return (1);
+			return (-1);
 		count = 0;
 		while (numbers[count])
 			count++;
@@ -112,15 +112,13 @@ void initialize_program(t_stack_list *a, t_stack_list *b)
 	*b = (t_stack_list){0};
 }
 
-int initialize_input(int argc, char **argv, t_stack_list *a, int *bench)
+int initialize_input(int argc, char **argv, t_stack_list *a, int *bench, t_algorithm strategy)
 {
 	int start;
 
-	t_algorithm strategy;
-
 	strategy = check_flags(argc, argv, &start, bench);
 	if (strategy == INVALID)
-		return (0);
+		return (-1);-
 }
 // complete bulidng it later
 

@@ -6,7 +6,7 @@
 /*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 14:27:52 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/24 16:18:05 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/25 15:39:25 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int validate_and_add(t_stack_list *a, char *str)
 	t_stack *node;
 
 	if (!parse_number(str, &value))
-		return (0);
+		return (-1);
 	if (check_duplicate_value(a->head, value))
-		return (0);
+		return (-1);
 	node = new_node(value);
 	if (!node)
-		return (0);
+		return (-1);
 	add_node_back(a, node);
 	return (1);
 }
