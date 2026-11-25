@@ -1,28 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   adaptive.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/16 09:26:01 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/22 11:10:53 by kalhouda         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	adaptive_sort(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
-	float	disorder_value;
-
-	disorder_value = disorder(a->head);
-	if (disorder_value < 0)
-		return ;
-	if (disorder_value < 0.2)
+	if (size(a->head) <= 5)
 		simple_sort(a, b, stats);
-	else if (disorder_value < 0.5)
-		sort_chunks(a, b, stats);
 	else
 		radix_sort(a, b, stats);
 }
