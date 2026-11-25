@@ -1,65 +1,59 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 16:45:34 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/22 14:57:21 by mhatamle         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	swap(t_stack_list *stack)
 {
-	t_stack	*next_current;
-	t_stack	*head;
-	t_stack	*last;
+	t_stack *first;
+	t_stack *second;
+	t_stack *rest;
 
 	if (!stack || !stack->head || !stack->head->next)
 		return ;
-	head = stack->head;
-	next_current = head->next;
-	last = next_current->next;
-	next_current->next = head;
-	next_current->prev = NULL;
-	head->prev = next_current;
-	head->next = last;
-	if (last)
-		last->prev = head;
+	first = stack->head;
+	second = first->next;
+	rest = second->next;
+	second->next = first;
+	second->prev = NULL;
+	first->prev = second;
+	first->next = rest;
+	if (rest)
+		rest->prev = first;
 	else
-		stack->tail = head;
-	stack->head = next_current;
+		stack->tail = first;
+	stack->head = second;
 }
 
 void	sa(t_stack_list *a, t_operations *stats)
 {
-	if (!a || !(a)->head || !a->head->next || !stats)
+	if (!a || !a->head || !a->head->next || !stats)
 		return ;
+	swap(a);
 	stats->sa++;
 	stats->total_op++;
-	swap(a);
+	if (!g_silent)
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack_list *b, t_operations *stats)
 {
 	if (!b || !b->head || !b->head->next || !stats)
 		return ;
+	swap(b);
 	stats->sb++;
 	stats->total_op++;
-	swap(b);
+	if (!g_silent)
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
-	if (!a | !b | !stats)
-		return;
+	if (!a || !b || !stats)
+		return ;
 	if ((!a->head || !a->head->next) && (!b->head || !b->head->next))
-		return;
+		return ;
 	swap(a);
 	swap(b);
 	stats->ss++;
 	stats->total_op++;
+	if (!g_silent)
+		write(1, "ss\n", 3);
 }
