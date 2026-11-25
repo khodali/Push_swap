@@ -1,34 +1,22 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 15:09:25 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/16 09:43:42 by mhatamle         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	rotate(t_stack_list *stack)
 {
-	t_stack	*last;
-	t_stack	*tmp;
-	t_stack	*first_next;
+	t_stack *last;
+	t_stack *first;
+	t_stack *next;
 
 	if (!stack || !stack->head || !stack->head->next || !stack->tail)
 		return ;
 	last = stack->tail;
-	tmp = stack->head;
-	first_next = tmp->next;
-	last->next = tmp;
-	tmp->prev = last;
-	tmp->next = NULL;
-	first_next->prev = NULL;
-	stack->head = first_next;
-	stack->tail = tmp;
+	first = stack->head;
+	next = first->next;
+	last->next = first;
+	first->prev = last;
+	first->next = NULL;
+	next->prev = NULL;
+	stack->head = next;
+	stack->tail = first;
 }
 
 void	ra(t_stack_list *a, t_operations *stats)
@@ -38,6 +26,8 @@ void	ra(t_stack_list *a, t_operations *stats)
 	rotate(a);
 	stats->ra++;
 	stats->total_op++;
+	if (!g_silent)
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_stack_list *b, t_operations *stats)
@@ -46,7 +36,10 @@ void	rb(t_stack_list *b, t_operations *stats)
 		return ;
 	rotate(b);
 	stats->rb++;
-	stats->total_op++;}
+	stats->total_op++;
+	if (!g_silent)
+		write(1, "rb\n", 3);
+}
 
 void	rr(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
@@ -58,3 +51,6 @@ void	rr(t_stack_list *a, t_stack_list *b, t_operations *stats)
 	rotate(b);
 	stats->rr++;
 	stats->total_op++;
+	if (!g_silent)
+		write(1, "rr\n", 3);
+}
