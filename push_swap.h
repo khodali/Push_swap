@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 10:40:45 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/24 16:24:56 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/26 09:01:01 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ typedef struct s_merge
 	long right;
 	long k;
 } t_merge;
+
+typedef struct s_chunk
+{
+	int start;
+	int end;
+} t_chunk;
 
 typedef enum e_algorithm
 {

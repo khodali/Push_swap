@@ -6,7 +6,7 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:45:34 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/22 14:57:21 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/26 09:17:45 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	sb(t_stack_list *b, t_operations *stats)
 
 void	ss(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
-	if (!a | !b | !stats)
-		return;
+	if (!a || !b || !stats)
+		return ;
 	if ((!a->head || !a->head->next) && (!b->head || !b->head->next))
-		return;
+		return ;
 	swap(a);
 	swap(b);
 	stats->ss++;

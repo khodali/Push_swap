@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-bool is_valid_syntax(char *str)
+bool	is_valid_syntax(char *str)
 {
 	if (!str || !*str)
 		return (false);
@@ -29,9 +29,9 @@ bool is_valid_syntax(char *str)
 	return (1);
 }
 
-bool is_within_int_range(char *str)
+bool	is_within_int_range(char *str)
 {
-	long num;
+	long	num;
 
 	if (!ft_atol(str, &num))
 		return (false);

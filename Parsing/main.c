@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-int my_strcmp(const char *s1, const char *s2)
+int	my_strcmp(const char *s1, const char *s2)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (s1 == NULL || s2 == NULL)
@@ -28,9 +28,9 @@ int my_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-t_algorithm check_flags(int argc, char **argv, int *start, int *bench)
+t_algorithm	check_flags(int argc, char **argv, int *start, int *bench)
 {
-	t_algorithm strategy;
+	t_algorithm	strategy;
 
 	strategy = ADAPTIVE;
 	*start = 1;
@@ -52,13 +52,12 @@ t_algorithm check_flags(int argc, char **argv, int *start, int *bench)
 			write(2, "Error\n", 6);
 			return (INVALID);
 		}
-
 		(*start)++;
 	}
 	return (strategy);
 }
 
-int load_arguments(int count, char **args, int start, t_stack_list *a)
+int	load_arguments(int count, char **args, int start, t_stack_list *a)
 {
 	while (start < count)
 	{
@@ -79,11 +78,11 @@ int load_arguments(int count, char **args, int start, t_stack_list *a)
 		return (1);
 }
 
-int parse_arguments(int argc, char **argv, int start, t_stack_list *a)
+int	parse_arguments(int argc, char **argv, int start, t_stack_list *a)
 {
-	char **numbers;
-	int count;
-	int error;
+	char	**numbers;
+	int		count;
+	int		error;
 
 	if (start >= argc)
 	{
@@ -106,38 +105,38 @@ int parse_arguments(int argc, char **argv, int start, t_stack_list *a)
 	return (load_arguments(argc, argv, start, a));
 }
 
-void initialize_program(t_stack_list *a, t_stack_list *b)
+void	initialize_program(t_stack_list *a, t_stack_list *b)
 {
 	*a = (t_stack_list){0};
 	*b = (t_stack_list){0};
 }
 
-int initialize_input(int argc, char **argv, t_stack_list *a, int *bench, t_algorithm strategy)
+int	initialize_input(int argc, char **argv, t_stack_list *a, int *bench,
+		t_algorithm strategy)
 {
-	int start;
+	int	start;
 
 	strategy = check_flags(argc, argv, &start, bench);
 	if (strategy == INVALID)
-		return (-1);-
+		return (-1);
+	-
 }
 // complete bulidng it later
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_stack_list a;
-	t_stack_list b;
-	int start;
-	int bench;
-	t_algorithm strategy;
+	t_stack_list	a;
+	t_stack_list	b;
+	int				start;
+	int				bench;
+	t_algorithm		strategy;
 
 	a.head = NULL;
 	a.tail = NULL;
 	b.head = NULL;
 	b.tail = NULL;
-
 	strategy = check_flags(argc, argv, &start, &bench);
 	if (strategy == INVALID)
 		return (1);
-
 	return (0);
 }

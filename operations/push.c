@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 22:02:36 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/10/23 22:02:36 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/26 09:15:58 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	pb(t_stack_list *a, t_stack_list *b, t_operations *stats)
 void	pa(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
 	if (!a || !b || !b->head || !stats)
-		return;
+		return ;
 	push(b, a);
 	stats->pa++;
 	stats->total_op++;

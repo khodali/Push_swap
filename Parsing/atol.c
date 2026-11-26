@@ -6,7 +6,7 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 15:36:25 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/22 09:45:18 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/26 09:21:50 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	check_overflow(long number, int digit, long limit)
 int	get_sign(const char **str)
 {
 	int	sign;
+
 	sign = 1;
 	if (**str == '-' || **str == '+')
 	{

@@ -6,7 +6,7 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 15:09:25 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/16 09:43:42 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/26 09:17:13 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	rb(t_stack_list *b, t_operations *stats)
 		return ;
 	rotate(b);
 	stats->rb++;
-	stats->total_op++;}
+	stats->total_op++;
+}
 
 void	rr(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
@@ -58,3 +59,4 @@ void	rr(t_stack_list *a, t_stack_list *b, t_operations *stats)
 	rotate(b);
 	stats->rr++;
 	stats->total_op++;
+}

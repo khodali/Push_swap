@@ -6,14 +6,14 @@
 /*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:38:52 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/22 15:19:28 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/26 09:12:00 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_chunk(t_stack_list *a, t_stack_list *b, int start, 
-	int end, t_operations *stats)
+static void	push_chunk(t_stack_list *a, t_stack_list *b,
+	t_chunk chunk, t_operations *stats)
 {
 	int		i;
 	int		len;
@@ -24,7 +24,7 @@ static void	push_chunk(t_stack_list *a, t_stack_list *b, int start,
 	while (i < len && a->head != NULL)
 	{
 		node = a->head;
-		if (node->rank >= start && node->rank <= end)
+		if (node->rank >= chunk.start && node->rank <= chunk.end)
 			pb(a, b, stats);
 		else
 			ra(a, stats);
@@ -34,22 +34,21 @@ static void	push_chunk(t_stack_list *a, t_stack_list *b, int start,
 
 void	sort_chunks(t_stack_list *a, t_stack_list *b, t_operations *stats)
 {
-	int	root;
-	int	start;
-	int	end;
-	int	total_len;
+	t_chunk	chunk;
+	int		total_len;
+	int		root;
 
 	total_len = size(a->head);
 	if (total_len < 2)
 		return ;
 	root = get_chunk_size(total_len);
-	start = 0;
-	end = root - 1;
-	while (start < total_len)
+	chunk.start = 0;
+	chunk.end = root - 1;
+	while (chunk.start < total_len)
 	{
-		push_chunk(a, b, start, end, stats);
-		start = end + 1;
-		end = end + root;
+		push_chunk(a, b, chunk, stats);
+		chunk.start = chunk.end + 1;
+		chunk.end = chunk.end + root;
 	}
 	sort_back_to_a(a, b, stats);
 }

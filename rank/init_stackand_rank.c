@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stackand_rank.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 09:22:31 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/22 13:05:05 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/26 08:58:50 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	init_stack(t_stack_list *a, int argc, char **argv)
 		i++;
 	}
 	return (1);
-} 
+}
 
 int	init_rank(t_stack_list *a, int *rank, int len)
 {

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 14:27:52 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/25 15:39:25 by kalhouda         ###   ########.fr       */
+/*   Updated: 2026/11/26 09:24:55 by mhatamle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool parse_number(char *str, int *number)
+bool	parse_number(char *str, int *number)
 {
-	long value;
+	long	value;
 
 	if (!is_valid_syntax(str))
 		return (false);
@@ -24,9 +24,9 @@ bool parse_number(char *str, int *number)
 	return (true);
 }
 
-bool check_duplicate(t_stack *stack)
+bool	check_duplicate(t_stack *stack)
 {
-	t_stack *current;
+	t_stack	*current;
 
 	current = stack;
 	while (current)
@@ -37,7 +37,8 @@ bool check_duplicate(t_stack *stack)
 	}
 	return (false);
 }
-bool check_duplicate_value(t_stack *stack, int value)
+
+bool	check_duplicate_value(t_stack *stack, int value)
 {
 	while (stack)
 	{
@@ -48,10 +49,10 @@ bool check_duplicate_value(t_stack *stack, int value)
 	return (false);
 }
 
-int validate_and_add(t_stack_list *a, char *str)
+int	validate_and_add(t_stack_list *a, char *str)
 {
-	int value;
-	t_stack *node;
+	int		value;
+	t_stack	*node;
 
 	if (!parse_number(str, &value))
 		return (-1);
