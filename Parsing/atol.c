@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   atol.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 15:36:25 by kalhouda          #+#    #+#             */
-/*   Updated: 2026/11/26 09:21:50 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/27 22:45:20 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	check_overflow(long number, int digit, long limit)
+int check_overflow(long number, int digit, long limit)
 {
 	if (number > (limit - digit) / 10)
 		return (0);
 	return (1);
 }
 
-int	get_sign(const char **str)
+int get_sign(const char **str)
 {
-	int	sign;
+	int sign;
 
 	sign = 1;
 	if (**str == '-' || **str == '+')
@@ -33,9 +33,9 @@ int	get_sign(const char **str)
 	return (sign);
 }
 
-int	parse_digits(const char *str, long *number, long limit)
+int parse_digits(const char *str, long *number, long limit)
 {
-	int	digit;
+	int digit;
 
 	*number = 0;
 	while (*str)
@@ -51,11 +51,11 @@ int	parse_digits(const char *str, long *number, long limit)
 	return (1);
 }
 
-int	ft_atol(const char *str, long *result)
+int ft_atol(const char *str, long *result)
 {
-	int		sign;
-	long	number;
-	long	limit;
+	int sign;
+	long number;
+	long limit;
 
 	if (!str || !result)
 		return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 10:40:45 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/26 09:01:01 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/27 19:25:04 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -139,14 +138,14 @@ void radix_sort(t_stack_list *a, t_stack_list *b,
 				t_operations *stats);
 
 int init_stack(t_stack_list *a, int argc, char **argv);
-int	init_rank(t_stack_list *a, int *rank, int len);
+int init_rank(t_stack_list *a, int *rank, int len);
 int *get_copy(t_stack *stack);
 void check_sorted(int *arr, int *rank, int len);
 
 int *get_rank(t_stack *stack);
 int get_chunk_size(int len);
-void	sort_back_to_a(t_stack_list *a, t_stack_list *b, t_operations *stats);
-void	move_max_to_top(t_stack_list *b, int max_pos, int len, t_operations *stats);
+void sort_back_to_a(t_stack_list *a, t_stack_list *b, t_operations *stats);
+void move_max_to_top(t_stack_list *b, int max_pos, int len, t_operations *stats);
 
 void sort_chunks(t_stack_list *a, t_stack_list *b, t_operations *stats);
 int find_max_rank(t_stack *b);
@@ -159,8 +158,8 @@ void rotate_min_to_top(t_stack_list *a, t_operations *stats);
 void simple_sort(t_stack_list *a, t_stack_list *b,
 				 t_operations *stats);
 
-t_stack_list    clone_stack(t_stack_list *original, int *success);
-int	init_bench(t_bench *bench, t_stack_list *original);
+t_stack_list clone_stack(t_stack_list *original, int *success);
+int init_bench(t_bench *bench, t_stack_list *original);
 
 void run_bench(t_stack_list *original);
 void run_algorithms(t_bench *bench);
@@ -168,5 +167,13 @@ void free_bench(t_bench *bench);
 
 void print_bench(float disorder_value, const char *strategy, t_operations *stats);
 int parse_arguments(int argc, char **argv, int start, t_stack_list *a);
-t_operations   *get_adaptive_stats(t_bench *bench, float disorder_value, const char **strategy);
+t_operations *get_adaptive_stats(t_bench *bench, float disorder_value, const char **strategy);
+
+void printf_char(char c);
+void printf_str(const char *str);
+void printf_number(int number);
+int initialize_ranks(t_stack_list *a);
+
+void execute_strategy(t_algorithm strategy, t_stack_list *a, t_stack_list *b, t_operations *stats);
+
 #endif

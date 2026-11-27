@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   add_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 09:23:03 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/10/29 09:23:05 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/27 23:20:38 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_stack	*new_node(int value)
+t_stack *new_node(int value)
 {
-	t_stack	*node;
+	t_stack *node;
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
@@ -26,13 +26,13 @@ t_stack	*new_node(int value)
 	return (node);
 }
 
-void	add_node_back(t_stack_list *stack, t_stack *node)
+void add_node_back(t_stack_list *stack, t_stack *node)
 {
 	if (stack->head == NULL)
 	{
 		stack->head = node;
 		stack->tail = node;
-		return ;
+		return;
 	}
 	else
 	{

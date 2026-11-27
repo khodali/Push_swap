@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   clone_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhatamle <mhatamle@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: kalhouda <kalhouda@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/22 14:58:41 by mhatamle          #+#    #+#             */
-/*   Updated: 2026/11/22 15:21:32 by mhatamle         ###   ########.fr       */
+/*   Updated: 2026/11/27 22:45:30 by kalhouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_stack_list	clone_stack(t_stack_list *original, int *success)
+t_stack_list clone_stack(t_stack_list *original, int *success)
 {
-	t_stack_list	clone;
-	t_stack			*current;
-	t_stack			*new;
+	t_stack_list clone;
+	t_stack *current;
+	t_stack *new;
 
 	clone.head = NULL;
 	clone.tail = NULL;
